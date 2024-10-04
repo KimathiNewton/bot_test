@@ -38,7 +38,26 @@ INACCURATE: The bot response was factually incorrect or contradicted the target 
 
 ## Accuracy Distribution
 The distribution of accuracy levels for each bot was as follows:
-![Mia](Images/Mia_distribution_plot.png)  ![Bella](Images/Bella_Distribution_plot.png)
-![Olivia](Images/Olivia_Distribution_plot.png)
-![Mike](Images/Mike_Distribution_plot.png)
+![Mia](Images/Mia_distribution_plot.png) . Mia's Percentage of Responses by Accuracy Level was as follows:![Mia_Accuracy_Percentage](Images/Mia_Percentage_Accuracy.png) 
+Mia has a strong performance with 73 accurate responses which is 86.9%, showing that most of her answers closely align with the target responses.
+Only 5 responses are marked as inaccurate which is 6%, meaning Mia generally provides semantically correct answers, with minimal mistakes.
+Few Partially Accurate Responses: There are 6 cases where Mia's responses are somewhat correct but contain either minor inaccuracies or incomplete information.
+Mia is performing well overall, with the majority of responses (close to 90%) being accurate or partially accurate. The bot seems to struggle minimally with inaccurate answers.
+ ![Bella](Images/Bella_Distribution_plot.png) Bella's Percentage of Responses by Accuracy Level was as follows:![Bella_Accuracy_Percentage](Images/Bella_percentage_Accuracy.png) 
+ Bella performs similarly to Mia and Olivia, with 64 responses being accurate(76.2%), which suggests strong alignment with the target answers.
+Bella has 13 partially accurate responses (15.5%), which is higher than Mia and Olivia, indicating that Bella sometimes provides answers that are somewhat correct but may miss some details.
+Bella has only 7 inaccurate responses (8.3%), a relatively small number compared to Mike, showing that Bella makes fewer errors overall.
+Conclusion:
+Bella exhibits high accuracy, with (76.2%)her responses being accurate or partially accurate. The low number of inaccurate responses indicates that Bella generally provides reliable answers.
+
+![Olivia](Images/Olivia_Distribution_plot.png) Olivia's Percentage of Responses by Accuracy Level was as follows:![Olivia_Accuracy_Percentage](Images/Olivia_Percentage_Accuracy.png) 
+Olivia demonstrates solid performance, with 65 responses classified as accurate, indicating high alignment with the target answers.
+Olivia's 12 inaccurate responses suggest occasional errors, but they are relatively infrequent.
+Similar to Mia, Olivia has a small number of responses (7) that fall between accurate and inaccurate, indicating that her understanding is generally strong but sometimes incomplete.
+Olivia shows a high level of accuracy, with 77.4% of her responses being accurate. However, the presence of 12 inaccurate responses points to areas where the model could be improved.
+![Mike](Images/Mike_Distribution_plot.png) Mike's Percentage of Responses by Accuracy Level was as follows:![Mike_Accuracy_Percentage](Images/Mike_Percentage_Accuracy.png) 
+Mike's responses are more evenly distributed across the accuracy categories compared to Mia. While 34 answers are accurate which accounts to 40.5%, nearly as many (27) are only partially accurate whci is 32.1%, and 23 responses are fully inaccurate which is 27.4%.
+With 23 inaccurate responses, Mike demonstrates a much higher tendency to generate incorrect answers compared to Mia, suggesting either misunderstandings or significant deviations from the target answers.
+Mike seems to often generate responses that are somewhat correct but lack full alignment with the target answers due to the Large Proportion of Partially Accurate Responses which is 32.1%
+Mike's performance is mixed, with nearly 50% of his responses being inaccurate or partially accurate.
 
