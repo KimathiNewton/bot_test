@@ -38,4 +38,5 @@ INACCURATE: The bot response was factually incorrect or contradicted the target 
 
 ## Accuracy Distribution
 The distribution of accuracy levels for each bot was as follows:
-![Mia](Images/Mia_distribution_plot.png)
+![Mia](Images/Mia_distribution_plot.png)  ![Bella](Images/Bella_Distribution_plot.png)
+
