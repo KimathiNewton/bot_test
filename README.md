@@ -28,3 +28,14 @@ The dataset we analyzed contains multiple columns for each bot, including:
 * Explanation: A brief description of why a particular accuracy label was assigned.
 
 Each bot (Mia, *Mike, Olivia, Bella) had its own set of responses, target responses, cosine similarity scores, and accuracy labels.
+
+# Accuracy Evaluation
+Evaluated the accuracy of each bot's responses using the following three categories:
+
+ACCURATE: The bot response was completely factually correct and aligned with the target response.
+PARTIALLY ACCURATE: The bot response was somewhat correct but contained either partial misinformation or lacked full details.
+INACCURATE: The bot response was factually incorrect or contradicted the target response.
+
+## Accuracy Distribution
+The distribution of accuracy levels for each bot was as follows:
+![Mia](Images/Mia_distribution_plot.png)
