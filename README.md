@@ -103,7 +103,7 @@ The bot responses were sent to the LLM along with the expected answers using a c
 ## Accuracy Distribution
 The distribution of accuracy levels for each bot was as follows:
 
-![Mia](Images/Mia_distribution_plot.png) . 
+![Mia](Images/MiaC.png) . 
 
 Mia's Percentage of Responses by Accuracy Level was as follows:![Mia_Accuracy_Percentage](Images/Mia_Percentage_Accuracy.png) 
 
