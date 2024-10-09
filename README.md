@@ -8,9 +8,6 @@ The evaluation was conducted in two main steps:
 ## LLM as a Judge
 LLM as a Judge is using LLMs to evaluate the responses of the bots, in comparison to the expected output. The responses are sent to an LLM with an evaluation prompt, and then ask the LLM to compare the response to the expected response, and score the response in three classes, Accurate, Partically Accurate, and Inaccurate. Responses were classified into three categories—ACCURATE, PARTIALLY ACCURATE, and INACCURATE—based on how closely the bot responses aligned with the target responses, and also an explantion on why the response belongs to that particular category.
 
-## Cosine Similarity
-We calculated the average cosine similarity for each accuracy category to quantify the semantic similarity between the bot responses and target responses.
-The evaluation is based on cosine similarity between the bot's responses and the expected response. Cosine similarity is used in this context to measure the semantic similarity between the the bot responses and the expected response. 
 
 ### How it works:
 * Text Conversion: Both the bot's responses and the expected responses are converted into numerical representations (vectors).The sentence_transformers library is used to convert text into numerical embeddings.
@@ -27,7 +24,34 @@ The dataset we analyzed contains multiple columns for each bot, including:
 * Accuracy: The label assigned to each bot's response, indicating whether it was ACCURATE, PARTIALLY ACCURATE, or INACCURATE.
 * Explanation: A brief description of why a particular accuracy label was assigned.
 
-Each bot (Mia, *Mike, Olivia, Bella) had its own set of responses, target responses, cosine similarity scores, and accuracy labels.
+Each bot (Mia, Mike, Olivia, Bella) had its own set of responses, target responses, cosine similarity scores, and accuracy labels.
+
+# Evaluating Semantic Similarity using Cosine similarity
+Cosine similarity is a measurement that quantifies the similarity between two or more vectors. It is the cosine of the angle between vectors. A score closer to one, means the angle between two vectos is smal, which means they are more similar.
+### How Cosine Similarity WOrks
+Texts is converted into vectors. Each dimension of the vector represents a word from the document, with its value indicating the frequency or importance of the word. 
+Cosine Similarity effectively captures the orientation or direction of the vectors and not their magnitude, making it reliable measure of similarity in texts of varying lengths.
+### Results
+The evaluation is based on cosine similarity between the bot's responses and the expected response. Cosine similarity is used in this context to measure the semantic similarity between the the bot responses and the expected response. 
+| Bot    | Mean Cosine Similarity | Standard Deviation | Minimum | Maximum |
+|--------|------------------------|--------------------|---------|---------|
+| Olivia | 0.8978                 | 0.1135             | 0.3694  | 1.0000  |
+| Mike   | 0.8367                 | 0.1595             | 0.1473  | 1.0000  |
+| Bella  | 0.8361                 | 0.1734             | 0.1887  | 1.0000  |
+| Mia    | 0.8269                 | 0.1881             | 0.1749  | 1.0000  |
+
+
+
+
+Overall Similarity: All four bots have a relatively high mean cosine similarity score, indicating that their responses generally align well with the target response.
+Variability: The standard deviation values vary among the bots, suggesting different levels of consistency in their responses. Olivia has the lowest standard deviation, indicating more consistent responses, while Bella and Mia have higher standard deviations, suggesting more variability.
+Extremes: The minimum and maximum values for each bot reveal the range of similarities. All bots have at least one response that perfectly matches the target (cosine similarity of 1), but they also have responses that are less similar (cosine similarity below 0.5).
+
+Contextual Factors: While a high cosine similarity suggests a good match, it's essential to consider the overall context of the conversation. A bot might generate a response that is semantically similar but misses the intended meaning due to lack of context.
+
+
+
+
 
 # Accuracy Evaluation
 Evaluated the accuracy of each bot's responses using the following three categories:
