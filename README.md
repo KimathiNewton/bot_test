@@ -40,12 +40,28 @@ The evaluation is based on cosine similarity between the bot's responses and the
 | Bella  | 0.8361                 | 0.1734             | 0.1887  | 1.0000  |
 | Mia    | 0.8269                 | 0.1881             | 0.1749  | 1.0000  |
 
+* Olivia is the most consistent and closest to the expected responses in terms of semantic similarity, making her the best-performing bot overall.
+* Mike and Bella have similar average performances, but both show significant variability, with some responses being very different from the expected outputs.
+* Mia is the least similar on average and has high variability, suggesting more instances of responses that deviate from expectations.
+
+## Analysing Cosine Similarity Distribution
+Visualising the distribution of the cosine similarity scores:
+ ![Olivia](Images/Olivia_CS_D.png)
+The distribution is skewed to the right, meaning there are more responses with higher cosine similarity scores (closer to 1) compared to lower scores. This indicates that Bot Olivia generally produces responses that are highly similar to the expected outputs.
+The histogram peaks around 0.9, suggesting that a majority of responses have a cosine similarity score close to 1. This is a positive sign, as it indicates that the bot is consistently generating relevant and accurate responses.
+The presence of a tail on the left side indicates that there are a few responses with lower cosine similarity scores. These could be outliers or instances where the bot's response was less aligned with the expected output.
+Cosine similarity scores distribution for Mike:
+ ![Mike](Images/Mike_CS_D.png)
+The distribution is skewed to the right, meaning there are more responses with higher cosine similarity scores (closer to 1) compared to lower scores. This indicates that Bot Mike generally produces responses that are similar to the expected outputs.
+Compared to Bot Olivia's distribution, Mike's histogram has a longer tail on the left side. This indicates that there are more responses with lower cosine similarity scores, suggesting a higher degree of variability in Mike's responses.
+Cosine similarity scores distribution for Bella:
+ ![Bella](Images/Bella_CS_D.png)
+ While Bot Bella's distribution also shows a rightward skew and a peak around 0.9, the longer tail on the left suggests that its performance is less consistent compared to Bot Olivia. There are more instances where Bella's responses deviate from the expected outputs to a greater extent.
+Cosine similarity scores distribution for Mia:
+ ![Mia](Images/Mia_CS_D.png)
 
 
 
-Overall Similarity: All four bots have a relatively high mean cosine similarity score, indicating that their responses generally align well with the target response.
-Variability: The standard deviation values vary among the bots, suggesting different levels of consistency in their responses. Olivia has the lowest standard deviation, indicating more consistent responses, while Bella and Mia have higher standard deviations, suggesting more variability.
-Extremes: The minimum and maximum values for each bot reveal the range of similarities. All bots have at least one response that perfectly matches the target (cosine similarity of 1), but they also have responses that are less similar (cosine similarity below 0.5).
 
 Contextual Factors: While a high cosine similarity suggests a good match, it's essential to consider the overall context of the conversation. A bot might generate a response that is semantically similar but misses the intended meaning due to lack of context.
 
