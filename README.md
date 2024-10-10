@@ -47,6 +47,7 @@ The evaluation is based on cosine similarity between the bot's responses and the
 * Mia had the lowest mean similarity, showing that her responses were the least semantically aligned with the target responses.
 
 ## Analysing Cosine Similarity Distribution
+The whole analysis can be found here [Cosine_Similarity_Analysis.ipynb](Cosine_Similarity_Analysis.ipynb)
 Visualising the distribution of the cosine similarity scores:
 
 ![Olivia](Images/Olivia_CS_D.png)
@@ -103,7 +104,7 @@ The bot responses were sent to the LLM along with the expected answers using a c
 ## Accuracy Distribution
 The distribution of accuracy levels for each bot was as follows:
 
-![Mia](Images/MiaC.png) . 
+![Mia](Images/Mia_distribution_plot.png) . 
 
 Mia's Percentage of Responses by Accuracy Level was as follows:![Mia_Accuracy_Percentage](Images/Mia_Percentage_Accuracy.png) 
 
@@ -150,7 +151,7 @@ In summary:
 ## Average Cosine Similarity By Accuracy Level
  Categorised the accuracy levels and calculated the average cosine similarity:
 
-![Mia_Average](Images/Mia_Average_Cosine_Similarity.png)
+![Mia](Images/MiaC.png) . 
 
 A cosine similarity of 0.846 for accurate responses suggests that Mia's accurate answers are semantically very close to the target responses.
 There is A significant drop to 0.600 for inaccurate responses indicates that when Mia gets the answer wrong, the semantic similarity between her answer and the target drops substantially.
