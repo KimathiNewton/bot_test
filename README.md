@@ -47,32 +47,38 @@ The evaluation is based on cosine similarity between the bot's responses and the
 * Mia had the lowest mean similarity, showing that her responses were the least semantically aligned with the target responses.
 
 ## Analysing Cosine Similarity Distribution
-The whole analysis can be found here [Cosine_Similarity_Analysis.ipynb](Cosine_Similarity_Analysis.ipynb)
+The whole analysis for cosine similarity scores can be found here: [Cosine_Similarity_Analysis.ipynb](Cosine_Similarity_Analysis.ipynb)
+
 Visualising the distribution of the cosine similarity scores:
 
 ![Olivia](Images/Olivia_CS_D.png)
+
 The distribution is skewed to the right, meaning there are more responses with higher cosine similarity scores (closer to 1) compared to lower scores. This indicates that Bot Olivia generally produces responses that are highly similar to the expected outputs.
 The histogram peaks around 0.9, suggesting that a majority of responses have a cosine similarity score close to 1. This is a positive sign, as it indicates that the bot is consistently generating relevant and accurate responses.
-The presence of a tail on the left side indicates that there are a few responses with lower cosine similarity scores. These could be outliers or instances where the bot's response was less aligned with the expected output.
+The presence of a tail on the left side indicates that there are a few responses with lower cosine similarity scores. These could be outliers or instances where the bot's response was less aligned with the expected output or where the bot completly contradicts the target response
 
 Cosine similarity scores distribution for Mike:
 
  ![Mike](Images/Mike_CS_D.png)
+
 The distribution is skewed to the right, meaning there are more responses with higher cosine similarity scores (closer to 1) compared to lower scores. This indicates that Bot Mike generally produces responses that are similar to the expected outputs.
 Compared to Bot Olivia's distribution, Mike's histogram has a longer tail on the left side. This indicates that there are more responses with lower cosine similarity scores, suggesting a higher degree of variability in Mike's responses.
 
 Cosine similarity scores distribution for Bella:
 
  ![Bella](Images/Bella_CS_D.png)
- While Bot Bella's distribution also shows a rightward skew and a peak around 0.9, the longer tail on the left suggests that its performance is less consistent compared to Bot Olivia. There are more instances where Bella's responses deviate from the expected outputs to a greater extent.
+
+ While Bot Bella's distribution also shows a rightward skew and a peak around 0.8, the longer tail on the left suggests that its performance is less consistent compared to Bot Olivia. There are more instances where Bella's responses deviate from the expected outputs to a greater extent.
 
 Cosine similarity scores distribution for Mia:
 
  ![Mia](Images/Mia_CS_D.png)
+
  Mia’s distribution shows the most significant spread, indicating a higher variability in response quality and less consistency compared to the other bots.
 
 
 ## Observation
+
 High cosine similarity scores indicate that a bot's responses are semantically similar to the target responses, but they don't always guarantee accuracy.. A bot might generate a response that is semantically similar but misses the intended meaning due to lack of context. This is because Cosine similarity measures the angle between two vectors (e.g., between a bot’s response vector and the expected response vector). This metric tells us how similar the direction of the two vectors is. In this context, a high cosine similarity score means that the bot’s response uses similar words or has a similar semantic meaning to the expected response.
 Examples :
 Fact-Based Questions: If the bot’s response is semantically similar but factually incorrect, the cosine similarity might still be high.
@@ -93,11 +99,13 @@ Repetition or Irrelevance: If a bot outputs longer, repetitive responses, it mig
 High similarity may not capture contextual appropriateness, Like in the case where the bot's reponses show uncertaininty, the cosine similairity can be high, but less accurate than expected.
 
 # Evaluating Accuracy using LLM As a Judge
+
 In this method, each bot’s response was compared to the expected response using a large language model (LLM). The LLM analyzed how closely the bot’s answer matched the target and classified the responses into three categories:
 
 * ACCURATE: Fully aligns with the target response.
 * PARTIALLY ACCURATE: Partially correct but missing key information or containing some inaccuracies.
 * INACCURATE: Factually incorrect or significantly misaligned with the target response.
+
 ### How It Works:
 The bot responses were sent to the LLM along with the expected answers using a carefully designed evaluation prompt. The LLM then assessed and assigned an accuracy label based on the factual alignment and provided an explanation for each classification.
 
@@ -106,31 +114,31 @@ The distribution of accuracy levels for each bot was as follows:
 
 ![Mia](Images/Mia_distribution_plot.png) . 
 
-Mia's Percentage of Responses by Accuracy Level was as follows:![Mia_Accuracy_Percentage](Images/Mia_Percentage_Accuracy.png) 
+Mia's Percentage of Responses by Accuracy Level was as follows:
 
-Mia has a strong performance with 73 accurate responses which is 86.9%, showing that most of her answers closely align with the target responses.
-Only 5 responses are marked as inaccurate which is 6%, meaning Mia generally provides semantically correct answers, with minimal mistakes.
-Few Partially Accurate Responses: There are 6 cases where Mia's responses are somewhat correct but contain either minor inaccuracies or incomplete information.
-Mia is performing well overall, with the majority of responses (close to 90%) being accurate or partially accurate. The bot seems to struggle minimally with inaccurate answers.
+![Mia_Accuracy_Percentage](Images/Mia_Percentage_Accuracy.png) 
+
+* Mia has a strong performance with 86.9% accurate responses, showing that most of her answers closely align with the target responses.
+* Only 6% are labelled as inaccurate, meaning Mia generally provides semantically correct answers, with minimal mistakes.
+* There are  7.1% cases where Mia's responses are somewhat correct but contain either minor inaccuracies or incomplete information.
+* Mia is performing well overall, with the majority of responses (close to 90%) being accurate or partially accurate. The bot seems to struggle minimally with inaccurate answers.
 
 ![Bella](Images/Bella_Distribution_plot.png)
  
 Bella's Percentage of Responses by Accuracy Level was as follows:![Bella_Accuracy_Percentage](Images/Bella_percentage_Accuracy.png) 
 
-Bella performs similarly to Mia and Olivia, with 64 responses being accurate(76.2%), which suggests strong alignment with the target answers.
-Bella has 13 partially accurate responses (15.5%), which is higher than Mia and Olivia, indicating that Bella sometimes provides answers that are somewhat correct but may miss some details.
-Bella has only 7 inaccurate responses (8.3%), a relatively small number compared to Mike, showing that Bella makes fewer errors overall.
-Conclusion:
-Bella exhibits high accuracy, with (76.2%)her responses being accurate or partially accurate. The low number of inaccurate responses indicates that Bella generally provides reliable answers.
+* Bella has 76.2% of her responses as accurate, which suggests strong alignment with the target answers.
+* Bella has 15.5% of her responses as partially accurate, which is higher than Mia and Olivia, indicating that Bella sometimes provides answers that are somewhat correct but may miss some details, or adds additional information.
+* Bella has 8.3% of her responses as inaccurate, a relatively small number compared to Mike
 
 ![Olivia](Images/Olivia_Distribution_plot.png) 
 
 Olivia's Percentage of Responses by Accuracy Level was as follows:![Olivia_Accuracy_Percentage](Images/Olivia_Percentage_Accuracy.png)
 
-Olivia demonstrates solid performance, with 65 responses classified as accurate, indicating high alignment with the target answers.
-Olivia's 12 inaccurate responses suggest occasional errors, but they are relatively infrequent.
-Similar to Mia, Olivia has a small number of responses (7) that fall between accurate and inaccurate, indicating that her understanding is generally strong but sometimes incomplete.
-Olivia shows a high level of accuracy, with 77.4% of her responses being accurate. However, the presence of 12 inaccurate responses points to areas where the model could be improved.
+* Olivia demonstrates solid performance, with 77.4% responses classified as accurate, indicating high alignment with the target answers.
+* Olivia's 12 inaccurate responses suggest occasional errors, but they are relatively infrequent.
+* Similar to Mia, Olivia has a small number of responses (8.3%) that fall between accurate and inaccurate, indicating that her understanding is generally strong but sometimes incomplete.
+
 
 ![Mike](Images/Mike_Distribution_plot.png) 
 
@@ -138,13 +146,12 @@ Mike's Percentage of Responses by Accuracy Level was as follows:
 
 ![Mike_Accuracy_Percentage](Images/Mike_Percentage_Accuracy.png)
 
-Mike's responses are more evenly distributed across the accuracy categories compared to Mia. While 34 answers are accurate which accounts to 40.5%, nearly as many (27) are only partially accurate whci is 32.1%, and 23 responses are fully inaccurate which is 27.4%.
-With 23 inaccurate responses, Mike demonstrates a much higher tendency to generate incorrect answers compared to Mia, suggesting either misunderstandings or significant deviations from the target answers.
-Mike seems to often generate responses that are somewhat correct but lack full alignment with the target answers due to the Large Proportion of Partially Accurate Responses which is 32.1%
-Mike's performance is mixed, with nearly 50% of his responses being inaccurate or partially accurate.
+* Mike's responses are more evenly distributed across the accuracy categories compared. 
+* Mike seems to often generate responses that are somewhat correct but lack full alignment with the target answers due to the Large Proportion of Partially Accurate Responses which is 32.1%
+* Mike's performance is mixed, with nearly 50% of his responses being inaccurate or partially accurate.
 
-In summary:
-* Mia had 86.9% accurate responses, indicating a strong performance.
+## In summary:
+* Mia had 86.9% accurate responses, indicating a strong performance as compared to the others.
 * Bella and Olivia were slightly lower, with 76.2% and 77.4% accuracy, respectively.
 * Mike struggled the most, with only 40.5% accurate responses and 27.4% of his responses being fully inaccurate.
 
@@ -153,34 +160,32 @@ In summary:
 
 ![Mia](Images/MiaC.png) . 
 
-A cosine similarity of 0.846 for accurate responses suggests that Mia's accurate answers are semantically very close to the target responses.
-There is A significant drop to 0.600 for inaccurate responses indicates that when Mia gets the answer wrong, the semantic similarity between her answer and the target drops substantially.
-The cosine similarity for partially accurate responses is 0.777, which shows that even when Mia's answers are not fully correct, they are still somewhat semantically close to the target.
-Mia's cosine similarity values align with the accuracy levels, with a clear drop in similarity for inaccurate answers, showing a good relationship between semantic similarity and response accuracy.
+* A cosine similarity of 0.846 for accurate responses suggests that Mia's accurate answers are semantically very close to the target responses.
+* There is A significant drop to 0.600 for inaccurate responses indicates that when Mia gets the answer wrong, the semantic similarity between her answer and the target drops substantially.
+* The cosine similarity for partially accurate responses is 0.777, which shows that even when Mia's answers are not fully correct, they are still somewhat semantically close to the target.
+* Mia's cosine similarity values align with the accuracy levels, with a clear drop in similarity for inaccurate answers, showing a good relationship between semantic similarity and response accuracy.
 
 ![Olivia_Average](Images/Olivia_Average_Cosine_Similarity.png)
 
-Olivia's accurate responses have the highest cosine similarity among the bots, with a value of 0.916, indicating that her correct answers are very close to the target responses in meaning.
-Even her inaccurate responses maintain a high cosine similarity (0.852), suggesting that her mistakes are not drastically different from the target answers.
-Olivia's partially accurate responses have a lower cosine similarity (0.799), but it still shows a strong semantic relationship with the target.
-Olivia's high cosine similarity across all categories highlights her strength in maintaining semantic closeness, even when the answers are not fully accurate.
-
+* Olivia's accurate responses have the highest cosine similarity among the bots, with a  mean cosine similarity score of 0.916, indicating that her correct answers are very close to the target responses in meaning.
+* Even her inaccurate responses maintain a high cosine similarity (0.852), suggesting that her mistakes are not drastically different from the target answers.
+* Olivia's partially accurate responses have a lower cosine similarity (0.799), but it still shows a strong semantic relationship with the target.
 
 ![Bella_Average](Images/Bella_cosine.png)
 
-Bella's accurate responses have a high cosine similarity of 0.865, reflecting strong semantic alignment with the target.
-A cosine similarity of 0.747 for inaccurate responses indicates a significant reduction in similarity when Bella gets the answers wrong, more so than Mia or Mike.
-Bella’s partially accurate responses have a cosine similarity of 0.737, which shows that there’s a notable difference between her answers and the target responses when they are not fully correct.
-Bella’s performance, in terms of cosine similarity, follows a more standard pattern, with the highest similarity for accurate responses and a marked drop for both partially accurate and inaccurate responses.
+* Bella's accurate responses have a high cosine similarity of 0.865, reflecting strong semantic alignment with the target.
+* A cosine similarity of 0.747 for inaccurate responses indicates a significant reduction in similarity when Bella gets the answers wrong, more so than Mia or Mike, however it still high for inaccurate responses
+* Bella’s partially accurate responses have a cosine similarity of 0.737, which shows that there’s a notable difference between her answers and the target responses when they are not fully correct.
 
 ![Mike_Average](Images/Mike_Average_Cosine_Similairy.png)
 
-Interestingly, Mike has high cosine similarity even for inaccurate responses (0.791). This suggests that even when Mike's answers are wrong, they remain semantically close to the target.
-The highest cosine similarity is for partially accurate responses (0.873), meaning that Mike's answers in this category are closer in terms of semantics, even though they may not be fully correct.
-Unlike Mia, Mike's inaccurate responses still have relatively high semantic similarity, which suggests that the mistakes might not be due to semantic errors but rather specific factual inaccuracies.
-Mike's performance is somewhat unique, as even his inaccurate responses maintain a high degree of semantic similarity. This could imply that his mistakes are subtle and not as noticeable in terms of semantic content.
+* Interestingly, Mike has high cosine similarity even for inaccurate responses (0.791). This suggests that even when Mike's answers are wrong, they remain semantically close to the target this is due to introduction of contradictory or irrelevant information leads to inaccurate answers.
+* The highest average cosine similarity is for partially accurate responses (0.873), meaning that Mike's answers in this category are closer in terms of semantics, even though they may not be fully correct.
+* Many responses include extra details that are not part of the target answer, such as irrelevant follow-up questions or fabricated information (e.g., claiming to know other languages or mentioning detective work not found in the target response).
+* The bot sometimes omits specific details from the target answer, such as missing certain subjects of interest, previous job experience, or unique city characteristics.
+* In some cases, the bot conveys the correct meaning but uses different wording, which still results in a PARTIALLY_ACCURATE classification because it's not an exact match to the target.
+* In rare cases, the bot contradicts the target response (e.g., being unable to remember previous jobs when the target response explicitly states "yes").
 
-Mike’s responses are generally well-structured and have a high degree of semantic similarity to the expected answers.
-However, the fact that his inaccurate responses are also scoring high on cosine similarity suggests that Mike may produce responses that are “close but not quite correct”.
-This pattern could indicate a tendency to generate plausible but subtly incorrect answers, making him prone to errors that are harder to detect with standard similarity metrics.
 
+## Conclusion
+While cosine similarity provides a numerical measure of how semantically close two texts are, it does not always capture finer nuances, like irrelevant additions or omissions which are crucial for evaluating the bot's responses. In most instances, the bot generates responses that are semantically close, but factually wrong. For this use-case, Using LLM as a judge seems like the most efficient evaluation metrics
